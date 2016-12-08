@@ -47,6 +47,7 @@ public class LvlManager : MonoBehaviour {
 		
 		infoImage.SetActive (true);
 		SR_image.sprite = arcInfo;
+		levelSelected = "JoanofArc";
 	}
 	public void SubdueInfo(){
 		
@@ -78,6 +79,9 @@ public class LvlManager : MonoBehaviour {
 		if(levelSelected=="Tesla"){
 			Application.LoadLevelAsync (2);
 
+		}
+		else if(levelSelected=="JoanofArc"){
+			Application.LoadLevelAsync (3);
 		}
 	}
 }
