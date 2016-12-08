@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Danscriptjustnow.cs" />
+     <Compile Include="Assets\Scripts\JoaLevelScripts\Joa_Football.cs" />
      <Compile Include="Assets\Scripts\JoaLevelScripts\Joa_GM.cs" />
      <Compile Include="Assets\Scripts\LevelSelectScripts\ChaptersScript.cs" />
      <Compile Include="Assets\Scripts\LevelSelectScripts\InfoScript.cs" />
