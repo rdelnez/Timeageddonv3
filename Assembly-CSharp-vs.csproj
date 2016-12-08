@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\LevelSelectScripts\LevelSelect_GM.cs" />
      <Compile Include="Assets\Scripts\LevelSelectScripts\LvlManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\TeslaCameraManager.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_GM.cs" />
      <Compile Include="Assets\Scripts\TitleScripts\CameraManager.cs" />
      <Compile Include="Assets\Scripts\TitleScripts\Title_GM.cs" />
      <Compile Include="Assets\Scripts\TitleScripts\made ascript in daniel PC.cs" />
