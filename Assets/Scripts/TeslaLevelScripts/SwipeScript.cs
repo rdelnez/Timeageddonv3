@@ -129,7 +129,7 @@ public class SwipeScript : MonoBehaviour {
 	public void ResetBall(){
 
 		ballObject.GetComponent<Rigidbody>().isKinematic = true;
-		ballObject.transform.localPosition = new Vector3 (0, -3.44f, -151.0f);
+		ballObject.transform.localPosition = new Vector3 (0, -3.44f, -54.4f);
 		ballObject.transform.localEulerAngles = new Vector3 (90,90,0);
 		ballObject.transform.localScale = new Vector3 (1, 1, 1);
 	}
