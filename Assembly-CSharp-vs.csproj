@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\TeslaLevelScripts\TeslaCameraManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Ball.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_GM.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_GoalMidCollider.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_ScoreManager.cs" />
      <Compile Include="Assets\Scripts\TitleScripts\CameraManager.cs" />
      <Compile Include="Assets\Scripts\TitleScripts\Title_GM.cs" />
      <Compile Include="Assets\Scripts\TitleScripts\made ascript in daniel PC.cs" />

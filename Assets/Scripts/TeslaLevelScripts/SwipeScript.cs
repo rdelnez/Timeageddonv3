@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SwipeScript : MonoBehaviour {
 	
@@ -8,6 +9,8 @@ public class SwipeScript : MonoBehaviour {
 
 	public GameObject textSendObject;
 	public GameObject ballObject;
+	public GameObject GM;
+	public Tesla_GM GM_Script;
 
 
 	public float startTime  = 0.0f;
@@ -24,67 +27,30 @@ public class SwipeScript : MonoBehaviour {
 	[SerializeField]
 	private float yForceValue;
 
-	private float maxYForce = 500.0f;
+	private float maxYForce = 400.0f;
 	private float maxSwipeSpeed = 0.3f;
+
+	public float tempBallSize;
+	public Vector3 tempBallSizeVect3;
+	public List<float> tempBallSizeList;
 
 	
 	
 	// Update is called once per frame
-	void Update () {
-		/*--
-		if (Input.touchCount > 0){
-			
-			foreach (Touch touch in Input.touches)
-			{
-				switch (touch.phase)
-				{
-				case TouchPhase.Began :
-					//start of touch
-					isSwiping = true;
-					startTime = Time.time;
-					startPos = touch.position;
-					break;
-					
-				case TouchPhase.Canceled :
-					//start of cancel swipe
-					isSwiping = false;
-					break;
-					
-				case TouchPhase.Ended :
-					
-					float swipeTime = Time.time - startTime;
-					float swipeDist = (touch.position - startPos).magnitude;
-					
-					if (isSwiping && swipeTime < maxSwipeTime && swipeDist > minSwipeDist){
-	
 
-						//Start Force Calculation
-						xForceValue = startPos.x - touch.position.x;
-						yForceValue = startPos.y - touch.position.y;
+	void Start(){
+		GM_Script = GM.GetComponent<Tesla_GM> ();
+		tempBallSizeList = new List<float> ();
 
-						textSendObject.GetComponent<Text>().text = "swipe successful.. adding force";
-						Debug.Log ("adding force");
-						
-						ballObject.GetComponent<Rigidbody>().isKinematic = false;
-						ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(-xForceValue,-yForceValue,yForceValue));
-						ballObject.GetComponent<Rigidbody>().AddTorque(new Vector3(swipeDist*2.0f,0,0));
-						StartCoroutine(ScaleBall());
-
-
-
-						//End Force Calculation
-
-	
-					}
-					
-					break;
-				}
-			}
-
-			Invoke("ResetBall", 5.0f);
+		for(int x=0; x<55; x++){
+			tempBallSizeList.Add (x*0.0185f);
 		}
 
-		--*/
+
+
+	}
+	void Update () {
+	
 		
 	}
 
@@ -97,7 +63,7 @@ public class SwipeScript : MonoBehaviour {
 			yForceValue = endPos.y - startPos.y;
 			
 			textSendObject.GetComponent<Text>().text = "swipe successful";
-			Debug.Log ("adding force");
+			//Debug.Log ("adding force");
 			
 			ballObject.GetComponent<Rigidbody>().isKinematic = false;
 			if(yForceValue > maxYForce){
@@ -107,7 +73,7 @@ public class SwipeScript : MonoBehaviour {
 			if(swipeTime < maxSwipeSpeed){
 				swipeTime = maxSwipeSpeed;
 			}
-			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue,yForceValue)*(2/swipeTime));
+			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue,yForceValue*1.5f)*(2/swipeTime));
 			ballObject.GetComponent<Rigidbody>().AddTorque(new Vector3(swipeDist*2.0f,0,0));
 			StartCoroutine(ScaleBall());
 
@@ -132,13 +98,20 @@ public class SwipeScript : MonoBehaviour {
 		ballObject.transform.localPosition = new Vector3 (0, -3.44f, -54.4f);
 		ballObject.transform.localEulerAngles = new Vector3 (90,90,0);
 		ballObject.transform.localScale = new Vector3 (1, 1, 1);
+		GM_Script.ballHit = false;
 	}
 
 	IEnumerator ScaleBall(){
-		for(int x=0; x<40; x++){
-			ballObject.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
+
+		for(int x=1; x<100; x++){
+			//tempBallSize = Mathf.Abs (ballObject.transform.localPosition.z);
+
+			tempBallSizeVect3 = transform.TransformPoint(ballObject.transform.localPosition);
+			tempBallSize = Mathf.Abs (tempBallSizeVect3.z);
+			Debug.Log (tempBallSize);
+			ballObject.transform.localScale = new Vector3(tempBallSize, tempBallSize, tempBallSize);
 		
-			yield return new WaitForSeconds(0.04f);
+			yield return new WaitForSeconds(0.02f);
 		}
 
 	}

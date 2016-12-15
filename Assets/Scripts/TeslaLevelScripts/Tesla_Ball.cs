@@ -21,7 +21,7 @@ public class Tesla_Ball : MonoBehaviour {
 	
 	void OnMouseOver(){
 		
-		Debug.Log ("Mouse is over the ball");
+	//	Debug.Log ("Mouse is over the ball");
 	}
 	
 	void OnMouseDown(){
@@ -35,7 +35,7 @@ public class Tesla_Ball : MonoBehaviour {
 	
 	void OnMouseUp(){
 		swipeScript.endPos = Input.mousePosition;
-		Debug.Log ("Mouse is Up or Been depressed");
+	//	Debug.Log ("Mouse is Up or Been depressed");
 
 		swipeScript.swipeTime = Time.time - swipeScript.startTime;
 		swipeScript.swipeDist = (swipeScript.endPos - swipeScript.startPos).magnitude;
@@ -48,7 +48,7 @@ public class Tesla_Ball : MonoBehaviour {
 	
 	void OnMouseExit(){
 		
-		Debug.Log ("Mouse is out");
+	//	Debug.Log ("Mouse is out");
 		
 	}
 }
