@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\LevelSelectScripts\LevelCameraManager.cs" />
      <Compile Include="Assets\Scripts\LevelSelectScripts\LevelSelect_GM.cs" />
      <Compile Include="Assets\Scripts\LevelSelectScripts\LvlManager.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\FootyGround_Script.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\SwipeScript.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\TeslaCameraManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Ball.cs" />

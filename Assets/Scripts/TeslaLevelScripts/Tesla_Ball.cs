@@ -5,15 +5,25 @@ public class Tesla_Ball : MonoBehaviour {
 	
 	public GameObject swipeScriptObject;
 	public SwipeScript swipeScript;
+	public GameObject ground;
+	public RaycastHit rayHit;
+
+	public LineRenderer line;
 	// Use this for initialization
 	void Start () {
 		
 		swipeScript = swipeScriptObject.GetComponent<SwipeScript> ();
+		line = this.GetComponent<LineRenderer> ();
+
+
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		SetUpRaycastHit ();
+		SetupLine ();
+		//DrawLine ();
 		
 		
 		
@@ -50,5 +60,33 @@ public class Tesla_Ball : MonoBehaviour {
 		
 	//	Debug.Log ("Mouse is out");
 		
+	}
+
+	void SetUpRaycastHit(){
+		if (Physics.Raycast (transform.localPosition, -Vector3.up, out rayHit, 100.0f)) {
+
+		}
+
+	}
+
+	void SetupLine()
+	{
+		line.sortingLayerName = "OnTop";
+		line.sortingOrder = 5;
+		line.SetVertexCount(2);
+		line.SetPosition(0, transform.localPosition);
+		line.SetPosition(1, ground.transform.localPosition);
+		//line.SetPosition(2, transform.localPosition);
+		line.SetWidth(0.01f, 0.01f);
+		line.useWorldSpace = true;
+
+	}
+
+	void DrawLine()
+	{
+		line.SetPosition(0, transform.localPosition);
+		//storedLinePoints.Add(newPoint); // add the new point to our saved list of line points
+		//line.SetVertexCount(storedLinePoints.Count); // set the line’s vertex count to how many points we now have, which will be 1 more than it is currently
+		line.SetPosition(0, ground.transform.localPosition); // add newPoint as the last point on the line (count -1 because the SetPosition is 0-based and Count is 1-based)    
 	}
 }

@@ -9,6 +9,7 @@ public class SwipeScript : MonoBehaviour {
 
 	public GameObject textSendObject;
 	public GameObject ballObject;
+	public GameObject ground;
 	public GameObject GM;
 	public Tesla_GM GM_Script;
 
@@ -51,9 +52,10 @@ public class SwipeScript : MonoBehaviour {
 	}
 	void Update () {
 	
+
 		
 	}
-
+	
 	public void AddForceToBall(){
 		if (isSwiping && swipeTime < maxSwipeTime && swipeDist > minSwipeDist){
 			
@@ -73,7 +75,7 @@ public class SwipeScript : MonoBehaviour {
 			if(swipeTime < maxSwipeSpeed){
 				swipeTime = maxSwipeSpeed;
 			}
-			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue,yForceValue*1.5f)*(2/swipeTime));
+			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue*1.1f,yForceValue*2.3f)*(2/swipeTime));
 			ballObject.GetComponent<Rigidbody>().AddTorque(new Vector3(swipeDist*2.0f,0,0));
 			StartCoroutine(ScaleBall());
 
@@ -102,18 +104,36 @@ public class SwipeScript : MonoBehaviour {
 	}
 
 	IEnumerator ScaleBall(){
-
+		/*--
 		for(int x=1; x<100; x++){
-			//tempBallSize = Mathf.Abs (ballObject.transform.localPosition.z);
+			//tempBallSize = Mathf.Abs (ballObject.transform.localPosition.z)/54.4f;
 
-			tempBallSizeVect3 = transform.TransformPoint(ballObject.transform.localPosition);
-			tempBallSize = Mathf.Abs (tempBallSizeVect3.z);
+
 			Debug.Log (tempBallSize);
 			ballObject.transform.localScale = new Vector3(tempBallSize, tempBallSize, tempBallSize);
 		
 			yield return new WaitForSeconds(0.02f);
 		}
+		--*/
+
+		for(int x=65; x>0; x--){
+			tempBallSize = Mathf.Abs (ballObject.transform.localPosition.z);
+				Debug.Log (tempBallSize);
+			if(tempBallSize<6.0f){
+				tempBallSize = 6.0f;
+				break;
+			}
+			ballObject.transform.localScale = new Vector3(tempBallSizeList[(int)tempBallSize], tempBallSizeList[(int)tempBallSize], tempBallSizeList[(int)tempBallSize]);
+			ground.transform.localScale = new Vector3(tempBallSizeList[(int)tempBallSize], tempBallSizeList[(int)tempBallSize], tempBallSizeList[(int)tempBallSize]);
+			
+			yield return new WaitForSeconds(0.02f);
+
+
+		}
+
 
 	}
 
+
+	
 }
