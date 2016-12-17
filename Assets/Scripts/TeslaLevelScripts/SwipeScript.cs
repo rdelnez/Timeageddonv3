@@ -101,6 +101,9 @@ public class SwipeScript : MonoBehaviour {
 		ballObject.transform.localEulerAngles = new Vector3 (90,90,0);
 		ballObject.transform.localScale = new Vector3 (1, 1, 1);
 		GM_Script.ballHit = false;
+		GM_Script.ChangeWind ();
+		GM_Script.CheckGameState ();
+		GM_Script.CheckLives();
 	}
 
 	IEnumerator ScaleBall(){

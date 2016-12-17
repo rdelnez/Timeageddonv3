@@ -37,6 +37,7 @@ public class Tesla_ScoreManager : MonoBehaviour {
 			//Debug.Log ("TeslaLevel/2D_Sprites/russ" + stringScore);
 
 			tempSprite = Resources.Load<Sprite> ("TeslaLevel/2D_Sprites/russ" + stringScore);
+			firstNumImage.sprite = Resources.Load<Sprite> ("TeslaLevel/2D_Sprites/russ0");
 			secondNumImage.sprite = tempSprite;
 	
 		} else {
