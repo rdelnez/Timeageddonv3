@@ -12,6 +12,7 @@ public class Tesla_GM : MonoBehaviour {
 	public Tesla_WindManager WM_Script;
 	public Tesla_RoundManager RM_Script;
 	public Tesla_LivesManager LM_Script;
+	public Tesla_BarManager BM_Script;
 
 	//Start ScoreManager Variables on GM
 	public int score;
@@ -43,6 +44,7 @@ public class Tesla_GM : MonoBehaviour {
 		WM_Script = GameObject.FindGameObjectWithTag ("WM").GetComponent<Tesla_WindManager>();
 		RM_Script = GameObject.FindGameObjectWithTag ("RM").GetComponent<Tesla_RoundManager>();
 		LM_Script = GameObject.FindGameObjectWithTag ("LM").GetComponent<Tesla_LivesManager>();
+		BM_Script = GameObject.FindGameObjectWithTag ("BM").GetComponent<Tesla_BarManager>();
 
 
 		targetScoreList = new List<int> ();

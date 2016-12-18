@@ -12,6 +12,7 @@ public class SwipeScript : MonoBehaviour {
 	public GameObject ground;
 	public GameObject GM;
 	public Tesla_GM GM_Script;
+	public Tesla_BarManager BM_Script;
 
 
 	public float startTime  = 0.0f;
@@ -21,15 +22,18 @@ public class SwipeScript : MonoBehaviour {
 	public float swipeTime = 0.0f;
 	public float swipeDist = 0.0f;
 	private float minSwipeDist  = 20.0f;
-	private float maxSwipeTime = 1.0f;
+	private float maxSwipeTime = 0.5f;
+	private float minSwipeTime = 0.2f;
+	public float differenceBetweenSwipeTimes;
+	public float tempSpeedBarFloat;
 
 	[SerializeField]
 	private float xForceValue;
 	[SerializeField]
 	private float yForceValue;
 
-	private float maxYForce = 400.0f;
-	private float maxSwipeSpeed = 0.3f;
+	private float maxYForce = 700.0f;
+	private float maxSwipeSpeed = 0.1f;
 
 	public float tempBallSize;
 	public Vector3 tempBallSizeVect3;
@@ -41,6 +45,9 @@ public class SwipeScript : MonoBehaviour {
 
 	void Start(){
 		GM_Script = GM.GetComponent<Tesla_GM> ();
+		BM_Script = GameObject.FindGameObjectWithTag ("BM").GetComponent<Tesla_BarManager>();
+		differenceBetweenSwipeTimes = maxSwipeTime - minSwipeTime;
+
 		tempBallSizeList = new List<float> ();
 
 		for(int x=0; x<55; x++){
@@ -58,6 +65,9 @@ public class SwipeScript : MonoBehaviour {
 	
 	public void AddForceToBall(){
 		if (isSwiping && swipeTime < maxSwipeTime && swipeDist > minSwipeDist){
+
+
+			//END for Bar Display
 			
 			
 			//Start Force Calculation
@@ -72,10 +82,18 @@ public class SwipeScript : MonoBehaviour {
 				yForceValue = maxYForce;
 			}
 
-			if(swipeTime < maxSwipeSpeed){
-				swipeTime = maxSwipeSpeed;
+			if(swipeTime < minSwipeTime){
+				swipeTime = minSwipeTime;
+			}else if(swipeTime > maxSwipeTime){
+				swipeTime = maxSwipeTime;
+
 			}
-			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue*1.1f,yForceValue*2.3f)*(2/swipeTime));
+
+			//Start for Bar Display
+			StartCoroutine(StartBarDisplayComputation());
+			//swipeTime/maxSwipeTime 
+
+			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue*0.45f,yForceValue*1.3f)*(2/swipeTime));
 			ballObject.GetComponent<Rigidbody>().AddTorque(new Vector3(swipeDist*2.0f,0,0));
 			StartCoroutine(ScaleBall());
 
@@ -87,6 +105,14 @@ public class SwipeScript : MonoBehaviour {
 			
 		}
 
+
+	}
+
+	IEnumerator StartBarDisplayComputation(){
+		tempSpeedBarFloat = (differenceBetweenSwipeTimes/(swipeTime)-0.4f);
+		//yield return new WaitForSeconds (0.5f);
+		yield return null;
+		BM_Script.UpdateBars(yForceValue/maxYForce, tempSpeedBarFloat);
 	}
 
 	public void SendMessage(){
@@ -101,6 +127,7 @@ public class SwipeScript : MonoBehaviour {
 		ballObject.transform.localEulerAngles = new Vector3 (90,90,0);
 		ballObject.transform.localScale = new Vector3 (1, 1, 1);
 		GM_Script.ballHit = false;
+		BM_Script.ResetBars ();
 		GM_Script.ChangeWind ();
 		GM_Script.CheckGameState ();
 		GM_Script.CheckLives();
