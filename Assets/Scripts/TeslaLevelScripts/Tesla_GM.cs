@@ -14,6 +14,12 @@ public class Tesla_GM : MonoBehaviour {
 	public Tesla_LivesManager LM_Script;
 	public Tesla_BarManager BM_Script;
 
+	
+	public Sprite point6Image;
+	public Sprite point1Image;
+	public GameObject refereeObject;
+	public Tesla_Referee refereeObjectScript;
+
 	//Start ScoreManager Variables on GM
 	public int score;
 	public int lastPointsAdded;
@@ -45,6 +51,10 @@ public class Tesla_GM : MonoBehaviour {
 		RM_Script = GameObject.FindGameObjectWithTag ("RM").GetComponent<Tesla_RoundManager>();
 		LM_Script = GameObject.FindGameObjectWithTag ("LM").GetComponent<Tesla_LivesManager>();
 		BM_Script = GameObject.FindGameObjectWithTag ("BM").GetComponent<Tesla_BarManager>();
+
+		refereeObjectScript = refereeObject.GetComponent<Tesla_Referee> ();
+		point6Image = Resources.Load<Sprite>("TeslaLevel/2D_Sprites/Referee/tophatScore6");
+		point1Image = Resources.Load<Sprite> ("TeslaLevel/2D_Sprites/Referee/tophatScore1");
 
 
 		targetScoreList = new List<int> ();
@@ -99,6 +109,14 @@ public class Tesla_GM : MonoBehaviour {
 
 	}
 
+	public void ChangeReferee(){
+		if (lastPointsAdded == 6) {
+			refereeObjectScript.GetComponent<Image> ().sprite = point6Image;
+		} else if(lastPointsAdded == 1){
+			refereeObjectScript.GetComponent<Image> ().sprite = point1Image;
+		}
+	}
+
 	public void CheckLives(){
 		if (lastPointsAdded == 0) {
 			lives -= 1;
@@ -129,6 +147,20 @@ public class Tesla_GM : MonoBehaviour {
 
 	public void UpdateScoreFromGM(){
 		SM_Script.UpdateScore(score);
+
+			UpdateReferee ();
+
+	}
+
+	public void UpdateReferee(){
+		refereeObject.SetActive (true);
+		ChangeReferee ();
+
+		Invoke ("RemoveRefereeDisplay",2.0f);
+	}
+
+	public void RemoveRefereeDisplay(){
+		refereeObject.SetActive (false);
 	}
 
 	public void ChangeWind(){

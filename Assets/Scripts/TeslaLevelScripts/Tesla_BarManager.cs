@@ -7,8 +7,10 @@ public class Tesla_BarManager : MonoBehaviour {
 
 	public Scrollbar strengScrollBar;
 	public Scrollbar speedScrollBar;
+	public bool isBarReset;
 	// Use this for initialization
 	void Start () {
+		isBarReset = true;
 	
 	}
 	
@@ -21,6 +23,7 @@ public class Tesla_BarManager : MonoBehaviour {
 	//	strengScrollBar.size = tempStr;
 	//	speedScrollBar.size = tempSpeed;
 
+		isBarReset = false;
 		StartCoroutine (AnimateStrBar(tempStr));
 		StartCoroutine (AnimateSpeedBar(tempSpeed));
 
@@ -29,26 +32,28 @@ public class Tesla_BarManager : MonoBehaviour {
 	IEnumerator AnimateStrBar(float str){
 		yield return null;
 		strengScrollBar.size = 0;
-		while(strengScrollBar.size < str){
+		while(strengScrollBar.size < str && isBarReset==false){
 			strengScrollBar.size+=0.1f;
 			yield return new WaitForSeconds(0.03f);
 		}
-		StopCoroutine (AnimateStrBar(0.0f));
+
 	}
 
 	IEnumerator AnimateSpeedBar(float speed){
 		yield return null;
 		speedScrollBar.size = 0;
-		while(speedScrollBar.size < speed){
+		while(speedScrollBar.size < speed  && isBarReset==false){
 			speedScrollBar.size+=0.1f;
 			yield return new WaitForSeconds(0.03f);
 		}
-		StopCoroutine (AnimateSpeedBar(0.0f));
+
 	}
 
 	public void ResetBars(){
+		isBarReset = true;
 		strengScrollBar.size = -0.5f;
 		speedScrollBar.size = -0.5f;
-
+		StopCoroutine (AnimateSpeedBar(0.0f));
+		StopCoroutine (AnimateStrBar(0.0f));
 	}
 }

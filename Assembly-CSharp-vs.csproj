@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity5-1-2/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity5-1-2/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -59,9 +59,11 @@
      <Compile Include="Assets\Scripts\TeslaLevelScripts\TeslaCameraManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Ball.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_BarManager.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Collectibles.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_GM.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_GoalMidCollider.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_LivesManager.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Referee.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_RoundManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_ScoreManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_WindManager.cs" />
@@ -70,16 +72,16 @@
      <Compile Include="Assets\Scripts\TitleScripts\Title_GM.cs" />
      <Compile Include="Assets\Scripts\TitleScripts\made ascript in daniel PC.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity5-1-2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity5-1-2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity5-1-2/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity5-1-2/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
