@@ -1,17 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TeslaLevelScripts\Tesla_Collectibles.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TeslaLevelScripts\Tesla_FactManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_Ball.cs" Line="23" Column="18" />
-      <File FileName="..\CANDYCATCH -  HERE WE GO\Assets\Scripts\CameraScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_GM.cs" Line="20" Column="28" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_Ball.cs" Line="21" Column="3" />
+      <File FileName="..\CANDYCATCH -  HERE WE GO\Assets\Scripts\CameraScript.cs" Line="25" Column="3" />
       <File FileName="..\CANDYCATCH -  HERE WE GO\Assets\Scripts\Gun.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TeslaLevelScripts\SwipeScript.cs" Line="106" Column="4" />
-      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_BarManager.cs" Line="53" Column="21" />
-      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_GM.cs" Line="116" Column="24" />
-      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_ScoreManager.cs" Line="39" Column="14" />
-      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_GoalMidCollider.cs" Line="41" Column="4" />
-      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_Referee.cs" Line="20" Column="1" />
-      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_Collectibles.cs" Line="19" Column="38" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\SwipeScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_BarManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_ScoreManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_GoalMidCollider.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_Referee.cs" Line="9" Column="88" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_Collectibles.cs" Line="20" Column="2" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_Particle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_PointsColletibles.cs" Line="21" Column="40" />
+      <File FileName="Assets\Scripts\TeslaLevelScripts\Tesla_FactManager.cs" Line="23" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

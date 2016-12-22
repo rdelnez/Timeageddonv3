@@ -60,9 +60,12 @@
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Ball.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_BarManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Collectibles.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_FactManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_GM.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_GoalMidCollider.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_LivesManager.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Particle.cs" />
+     <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_PointsColletibles.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_Referee.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_RoundManager.cs" />
      <Compile Include="Assets\Scripts\TeslaLevelScripts\Tesla_ScoreManager.cs" />

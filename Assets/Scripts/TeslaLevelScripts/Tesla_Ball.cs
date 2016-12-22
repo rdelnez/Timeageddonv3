@@ -7,12 +7,14 @@ public class Tesla_Ball : MonoBehaviour {
 	public SwipeScript swipeScript;
 	public GameObject ground;
 	public RaycastHit rayHit;
+	public Tesla_GM GM_Script;
 
 	public LineRenderer line;
 	// Use this for initialization
 	void Start () {
 		
 		swipeScript = swipeScriptObject.GetComponent<SwipeScript> ();
+		GM_Script = GameObject.FindGameObjectWithTag ("GM").GetComponent<Tesla_GM>();
 		line = this.GetComponent<LineRenderer> ();
 
 
@@ -36,6 +38,7 @@ public class Tesla_Ball : MonoBehaviour {
 	
 	void OnMouseDown(){
 
+		GM_Script.lastPointsAdded = 0;
 
 		swipeScript.isSwiping = true;
 		swipeScript.startTime = Time.time;

@@ -121,7 +121,9 @@ public class SwipeScript : MonoBehaviour {
 	}
 
 	public void ResetBall(){
-
+		if(GM_Script.lastPointsAdded==0){
+			GM_Script.UpdateReferee ();
+		}
 		ballObject.GetComponent<Rigidbody>().isKinematic = true;
 		ballObject.transform.localPosition = new Vector3 (0, -3.44f, -54.4f);
 		ballObject.transform.localEulerAngles = new Vector3 (90,270,0);
