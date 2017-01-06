@@ -93,7 +93,8 @@ public class SwipeScript : MonoBehaviour {
 			StartCoroutine(StartBarDisplayComputation());
 			//swipeTime/maxSwipeTime 
 
-			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue*0.45f,yForceValue*1.3f)*(2/swipeTime));
+			//ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue*0.45f,yForceValue*1.3f)*(2/swipeTime));
+			ballObject.GetComponent<Rigidbody>().AddForce(new Vector3(xForceValue,yForceValue*0.65f,yForceValue*1.8f)*(1.8f/swipeTime));
 			ballObject.GetComponent<Rigidbody>().AddTorque(new Vector3(swipeDist*2.0f,0,0));
 			StartCoroutine(ScaleBall());
 

@@ -25,7 +25,7 @@ public class Tesla_Ball : MonoBehaviour {
 	void Update () {
 		SetUpRaycastHit ();
 		SetupLine ();
-		//DrawLine ();
+		//DrawLine (); not beign used
 		
 		
 		
